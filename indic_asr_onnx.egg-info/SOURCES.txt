@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.md
+requirements.txt
+setup.py
+indic-asr/__init__.py
+indic-asr/_version.py
+indic-asr/transcriber.py
+indic_asr_onnx.egg-info/PKG-INFO
+indic_asr_onnx.egg-info/SOURCES.txt
+indic_asr_onnx.egg-info/dependency_links.txt
+indic_asr_onnx.egg-info/requires.txt
+indic_asr_onnx.egg-info/top_level.txt
