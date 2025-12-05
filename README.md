@@ -1,95 +1,75 @@
-# Indic ASR
+# Indic ASR Quantized
 
-A quantized automatic speech recognition (ASR) system for multiple Indic languages using the IndicConformer architecture.
+A helper package to use Quantized Indic ASR (Automatic Speech Recognition) for multiple Indic languages.
+
+The original model was developed by AI4Bharat and can be found [here](https://huggingface.co/ai4bharat/indic-conformer-600m-multilingual)
 
 ## Installation
 
 ### CPU-only Installation (Recommended for limited resources)
 ```bash
-pip install --extra-index-url https://download.pytorch.org/whl/cpu indic-asr
+pip install uv
+uv pip install indic-asr-onnx --extra-index-url https://download.pytorch.org/whl/cpu
 ```
 
 ### GPU Installation
 ```bash
-pip install indic-asr
-```
-
-For uv users:
-```bash
-uv pip install --extra-index-url https://download.pytorch.org/whl/cpu indic-asr
+pip install uv
+uv pip install indic-asr-onnx --extra-index-url https://download.pytorch.org/whl/cu113
 ```
 
 ## Quick Start
 
 ```python
-from indic_asr import IndicConformerTranscriber
+from indic_asr_onnx import IndicTranscriber
 
 # Initialize (downloads model automatically)
-transcriber = IndicConformerTranscriber()
+transcriber = IndicTranscriber()
 
-# Transcribe audio
+# Transcribe audio using CTC head
 text = transcriber.transcribe_ctc("audio.wav", "hi")  # Hindi
+print(text)
+
+# Transcribe audio using RNN-T head
+text = transcriber.transcribe_rnnt("audio.wav", "hi")  # Hindi
 print(text)
 ```
 
 ## Supported Languages
 
-- Hindi (hi)
+- Assamese (as)
 - Bengali (bn)
-- Telugu (te)
-- Marathi (mr)
-- Tamil (ta)
+- Bodo (brx)
+- Dogri (doi)
 - Gujarati (gu)
+- Hindi (hi)
 - Kannada (kn)
+- Kashmiri (ks)
+- Konkani (kok)
+- Maithili (mai)
 - Malayalam (ml)
+- Manipuri (mni)
+- Marathi (mr)
+- Nepali (ne)
 - Odia (or)
 - Punjabi (pa)
-- Assamese (as)
+- Sanskrit (sa)
+- Santali (sat)
+- Sindhi (sd)
+- Tamil (ta)
+- Telugu (te)
+- Urdu (ur)
 
 ## Features
 
 - **Quantized Models**: INT8 quantization for efficient CPU inference
-- **Multiple Languages**: Support for 11 Indic languages
+- **Multiple Languages**: Support for 22 Indic languages
 - **Two Modes**: CTC and RNN-T decoding
 - **Auto Download**: Models download automatically on first use
 - **ONNX Runtime**: Optimized inference with ONNX
-
-## Usage
-
-### CTC Mode (Faster)
-```python
-text = transcriber.transcribe_ctc("audio.wav", "hi")
-```
-
-### RNN-T Mode (More Accurate)
-```python
-text = transcriber.transcribe_rnnt("audio.wav", "hi")
-```
 
 ## Audio Requirements
 
 - Format: WAV, MP3, FLAC, etc.
 - Sample Rate: Auto-resampled to 16kHz
 - Channels: Mono (auto-converted)
-
-## Performance
-
-- **CPU Inference**: ~50-100x real-time on modern CPUs
-- **Memory**: ~200-500MB per inference
-- **Model Size**: ~500MB (downloaded on first use)
-
-## License
-
-MIT License
-
-## Citation
-
-If you use this in your research, please cite:
-
-```
-@misc{indic-asr-2025,
-  title={Indic ASR: Quantized Conformer for Indic Languages},
-  author={Verma, Atharva},
-  year={2025}
-}
-```

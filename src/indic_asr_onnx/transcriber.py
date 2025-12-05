@@ -6,7 +6,7 @@ import torchaudio
 import onnxruntime as ort
 from huggingface_hub import snapshot_download
 
-class IndicConformerTranscriber:
+class IndicTranscriber:
     def __init__(self, model_dir=None, repo_id="atharva-again/indic-conformer-600m-quantized"):
         """
         Initialize the transcriber.
