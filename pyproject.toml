@@ -4,32 +4,40 @@ build-backend = "uv_build"
 
 [project]
 name = "indic-asr-onnx"
-version = "0.1.1"
+version = "0.2.1"
 dependencies = [
     "torch>=2.0.0",
     "torchaudio>=2.0.0",
     "onnxruntime>=1.15.0",
-    "huggingface_hub>=0.17.0",
+    "onnxruntime-gpu>=1.15.0",
     "numpy>=1.21.0",
     "torchcodec",
 ]
+
 authors = [
     {name = "Atharva Verma", email = "atharva.verma18@gmail.com"},
 ]
 description = "Quantized IndicConformer ASR models for multiple Indian languages"
 readme = "README.md"
+readme-content-type = "text/markdown"
 license = "MIT"
-requires-python = ">=3.11"
+license-files = [ "LICENSE" ]
+requires-python = ">=3.8"
 keywords = ["asr", "speech-recognition", "indic-languages", "multilingual", "conformer", "ctc", "rnnt", "onnx", "quantized"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
     "Operating System :: OS Independent",
-    "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.11",
-    "Programming Language :: Python :: 3.12",
-    "Programming Language :: Python :: 3.13",
-    "Programming Language :: Python :: 3.14",
+    "Programming Language :: Python :: 3.8",
     "Topic :: Multimedia :: Sound/Audio :: Speech",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
+
+[project.urls]
+"Homepage" = "https://github.com/atharva-again/indic-asr-onnx"
+"Repository" = "https://github.com/atharva-again/indic-asr-onnx"
+"Issues" = "https://github.com/atharva-again/indic-asr-onnx/issues"
+
+[project.optional-dependencies]
+dev = ["uv", "twine"]
+test = []

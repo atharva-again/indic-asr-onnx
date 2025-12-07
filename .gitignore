@@ -29,6 +29,7 @@ share/python-wheels/
 env/
 venv/
 test_env/
+test_venv/
 ENV/
 env.bak/
 venv.bak/
@@ -44,3 +45,5 @@ venv.bak/
 
 tests/
 pypi_hf_deployment.md
+evals.md
+GPU_SUPPORT_PLAN.md
